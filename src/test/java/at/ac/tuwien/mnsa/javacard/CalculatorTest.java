@@ -38,7 +38,7 @@ public class CalculatorTest {
 	public void testAPDUCommand(CommandAPDU commandAPDU,
 	                            ResponseAPDU expected)
 			throws Exception {
-		ResponseAPDU actual = simulator.transmitCommand(commandAPDU);
+		ResponseAPDU actual = new ResponseAPDU(simulator.transmitCommand(commandAPDU.getBytes()));
 
 		assertEquals(expected.getSW1(), actual.getSW1());
 		assertEquals(expected.getSW2(), actual.getSW2());
